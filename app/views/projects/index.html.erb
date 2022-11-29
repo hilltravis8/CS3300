@@ -2,13 +2,26 @@
 
 <h1>Projects</h1>
 
-<div id="projects">
-  <% @projects.each do |project| %>
-    <%= render project %>
-    <p>
-      <%= link_to "Show this project", project %>
-    </p>
-  <% end %>
-</div>
-
 <%= link_to "New project", new_project_path %>
+
+<div class="container">
+  <!-- Example row of columns -->
+  <div class="row">
+    <tbody>
+      <% @projects.each do |project| %>
+        <div class="col-md-4">
+          <tr>
+            <h2><%= project.title %></h2>
+            <td><%= project.description %><br></td>
+            <td><%= link_to "Show this project", project %></td>
+            <% if user_signed_in?%>
+              <td><%= link_to 'Edit', edit_project_path(project) %></td>
+              <td><%= link_to 'Destroy', project, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+            <% end %>
+          </tr>
+        </div>
+      <% end %>
+    </tbody>
+  </div>
+<hr>
+</div>
