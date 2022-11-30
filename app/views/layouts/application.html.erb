@@ -2,9 +2,24 @@
 <html>
   <head>
     <title>Cs3300</title>
-    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
+
+    <meta charset="utf-8">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <link rel="icon" href="/docs/4.0/assets/img/favicons/favicon.ico">
+
+    <title>Jumbotron Template for Bootstrap</title>
+
+    <link rel="canonical" href="https://getbootstrap.com/docs/4.0/examples/jumbotron/">
+
+    <!-- Bootstrap core CSS -->
+    <link href="../../dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Custom styles for this template -->
+    <link href="jumbotron.css" rel="stylesheet">
 
     <%= stylesheet_link_tag "application", media: "all", "data-turbolinks-track": "reload" %>
     <%= javascript_include_tag "application", "data-turbolinks-track": "reload" %>
@@ -12,8 +27,8 @@
   </head>
 
   <body>
-    <p class="notice"><%= notice %></p>
-    <p class="alert"><%= alert %></p>
+    <center><p class="notice"><%= notice %></p><center>
+    <center><p class="alert"><%= alert %></p><center>
 
     <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
       <a class="navbar-brand" href="#">Navbar</a>
@@ -26,16 +41,17 @@
           <li class="nav-item active">
             <a class="nav-link" href="/projects">Home <span class="sr-only"></span></a>
           </li>
-          <li class="nav-item dropdown">
-            <a class="nav-link dropdown-toggle" href="http://example.com" id="dropdown01" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Dropdown</a>
-            <div class="dropdown-menu" aria-labelledby="dropdown01">
-              <a class="dropdown-item" href="/users/sign_in">Sign In</a>
-              <a class="dropdown-item" href="/users/sign_up">Sign Up action</a>
-              <% if user_signed_in?%>
-                <%=link_to "Logout", destroy_user_session_path,:method => :delete %>
-              <% end %>
-            </div>
+          <li class="nav-item active">
+            <a class="nav-link" href="/users/sign_in">Sign In <span class="sr-only"></span></a>
           </li>
+          <li class="nav-item active">
+            <a class="nav-link" href="/users/sign_up">Sign Up <span class="sr-only"></span></a>
+          </li>
+          <% if user_signed_in? %>
+            <li class="nav-item active">
+              <a class="nav-link" href="/users/sign_out">Sign Out <span class="sr-only"></span></a>
+            </li>
+          <% end %>
         </ul>
       </div>
     </nav>
@@ -44,8 +60,8 @@
 
       <!-- Main jumbotron for a primary marketing message or call to action -->
       <div class="jumbotron">
-        <div class="container">
-          <h1 class="display-3">Hello, world!</h1>
+        <div class="container-fluid bg-secondary">
+          <h1 class="display-3">Portfolio</h1>
           <p>My name is Travis Hill and this my portfolio project for the Intro to Software Engineering class at the University of Colorado, Colorado Springs.</p>
         </div>
       </div>
